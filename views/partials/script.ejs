@@ -1,0 +1,67 @@
+<script>
+    $(document).ready(function () {
+        load();
+
+        $('.nav-link').click(function () {
+            $('.nav-link').removeClass('active font-weight-bold').addClass('inactive');
+            $(this).addClass('active font-weight-bold');
+        });
+
+        $('.alphabet').click(function (e) {
+            e.preventDefault();
+            $('.alphabet').removeClass('active font-weight-bold');
+            $(this).addClass('active font-weight-bold');
+            let me = $(this)
+            getByLetter(me.html());
+        });
+
+        $('#search').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '/search',
+                data: { q: $('#q').val(), lang: $('.nav-link.active').attr('lang-code') },
+                success: (res) => {
+                    $('#content').html(res.data)
+                },
+                error: (err) => {
+                    console.log(err);
+                    $('#content').html(sAlert(err.status >= 404 || err.status < 500 ? err.responseJSON.message : err.responseJSON.error))
+                }
+            });
+        });
+
+        function load() {
+            $('.nav-link').first().addClass('active font-weight-bold')
+            $('.alphabet').first().addClass('active font-weight-bold')
+            getByLetter('A');
+        }
+
+        function getByLetter(l) {
+            $.ajax({
+                type: "GET",
+                url: `/${l}`,
+                success: (res) => {
+                    $('#content').html(res.data);
+                },
+                error: (err) => {
+                    console.log(err);
+                    $('#content').html(sAlert(err.status === 400 ? err.responseJSON.message : err.responseJSON.error))
+                }
+            });
+        }
+
+        $('#filter').keyup(function (e) { 
+            console.log("BAJIGUR");
+            let value = $(this).val().toLowerCase();
+                $("#content div.dictionary ").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });         
+        });
+
+        function sAlert(txt) {
+            return `<div class="alert alert-warning col-sm-12" role="alert">${txt}</div>`;
+        }
+
+    })
+</script>
