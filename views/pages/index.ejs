@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <!-- 2021 © Bangun Code | made with ❤ by Rum -->
+    <%- include('../partials/header'); %>
+        <div class="container">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <% let alphabet=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
+                    , "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; for( let i=0; i <
+                        alphabet.length; i++ ) { %>
+                    <button type="button" class="btn btn-outline-info alphabet mt-1"><%= alphabet[i]; %></button>
+                    <% } %>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="filter" aria-describedby="filterWord" placeholder="Filter...">
+                    </div>
+                </div>
+                <div class="row mt-3" id="content"></div>
+            </div>
+        </div>
+
+        <%- include('../partials/script'); %>
+</body>
+
+</html>
