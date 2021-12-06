@@ -67,16 +67,14 @@ npm start
 
 | URI | Method | Keterangan |
 | ------ | ------ | ------ |
-| `127.0.0.1:3000/nk` | GET | pencarian kata berdasarkan pilihan bahasa Ngoko |
-| `127.0.0.1:3000/km` | GET | pencarian kata berdasarkan pilihan bahasa Krama |
-| `127.0.0.1:3000/id` | GET | pencarian kata berdasarkan pilihan bahasa Indonesia |
+| `127.0.0.1:3000/search` | GET | pencarian kata berdasarkan pilihan bahasa (Ngoko, Krama dan Indonesia) |
 
 ##### Data
 
 | Parameter | Tipe | Keterangan |
 | ------ | ------ | ------ |
 | `q` | String | kata kunci |
-| `lang` | String | bahasa asal |
+| `lang` | String | bahasa asal `nk`, `km` atau `id` (default: `nk`) |
 
 ##### Response
 | Kode | Status | Keterangan |
