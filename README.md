@@ -1,5 +1,5 @@
 # Kamus Sederhana Bahasa Indramayu
-Kamus Sederhana Bahasa Indramayu berisi daftar kata dalam Bahasa Indramayu - Bahasa Indonesia atau Bahasa Indonesia – Bahasa Indramayu. Dirangkum dari buku karya Ibnu Saefullah yang telah direvisi.
+Kamus Sederhana Bahasa Indramayu berisi daftar kata dalam Bahasa Indramayu - Bahasa Indonesia atau Bahasa Indonesia – Bahasa Indramayu. Dirangkum dari buku karya Ibnu Saefullah yang telah direvisi. [**DEMO**](https://basadermayu.herokuapp.com/)
 ![alt text](public/images/ss.png "Screenshot")
 
 ## Fitur
